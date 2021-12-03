@@ -31,4 +31,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: main
-          commit_message: Generated files for day ${{ env.DAY_OF_MONTH }
+          commit_message: Generated files for day ${{ env.DAY_OF_MONTH }}
