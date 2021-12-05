@@ -1,5 +1,6 @@
 package template
 
+import checkAnswer
 import readInput
 
 fun main() {
@@ -11,12 +12,16 @@ fun main() {
         return input.size
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("template/test")
-    check(part1(testInput) == 1)
-    //check(part2(testInput) == 1)
+    fun getInput(file: String): List<String> {
+        return readInput(file)
+    }
 
-    val input = readInput("template/input")
+    // test if implementation meets criteria from the description, like:
+    val testInput = getInput("template/test")
+    checkAnswer(part1(testInput), 1)
+    //checkAnswer(part2(testInput), 1)
+
+    val input = getInput("template/input")
     println(part1(input))
     println(part2(input))
 }

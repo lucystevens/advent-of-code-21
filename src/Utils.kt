@@ -13,3 +13,5 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
 fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)
 
 fun <T> List<T>.toPair(): Pair<T,T> = Pair(get(0), get(1))
+
+fun checkAnswer(expected: Int, actual: Int) = check(actual == expected){ "Actual val: $actual"}
