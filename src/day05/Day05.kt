@@ -1,5 +1,6 @@
 package day05
 
+import common.Point
 import readInput
 import toPair
 import java.lang.Integer.max
@@ -59,4 +60,3 @@ fun main() {
     println(part2(input))
 }
 
-data class Point(val x: Int, val y: Int)
