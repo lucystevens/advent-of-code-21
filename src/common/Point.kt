@@ -6,5 +6,13 @@ data class Point(val x: Int, val y: Int) {
     fun left(): Point = Point(x-1, y)
     fun right(): Point = Point(x+1, y)
 
-    fun adjacentPoints(): List<Point> = listOf(above(), below(), left(), right())
+    fun adjacentPoints(includeDiagonals: Boolean = false): List<Point> =
+        when(includeDiagonals){
+            true -> IntRange(-1,1).flatMap {
+                        xMod -> IntRange(-1,1).map {
+                        yMod -> Point(x+xMod, y+yMod)
+                    }
+            }.filterNot { it == this }
+            false -> listOf(above(), below(), left(), right())
+        }
 }
