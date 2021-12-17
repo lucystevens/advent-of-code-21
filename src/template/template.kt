@@ -18,8 +18,8 @@ fun main() {
 
     // test if implementation meets criteria from the description, like:
     val testInput = getInput("template/test")
-    checkAnswer(part1(testInput), 1)
-    //checkAnswer(part2(testInput), 1)
+    checkAnswer(part1(testInput), 1, "testInput part1")
+    //checkAnswer(part2(testInput), 1, "testInput part2")
 
     val input = getInput("template/input")
     println(part1(input))

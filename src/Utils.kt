@@ -14,7 +14,10 @@ fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest
 
 fun <T> List<T>.toPair(): Pair<T,T> = Pair(get(0), get(1))
 
-fun <T> checkAnswer(actual: T, expected: T) = check(actual == expected){ "Actual val: $actual"}
+fun <T> checkAnswer(actual: T, expected: T, name: String = "Testing") {
+    check(actual == expected) { "$name: Actual val: $actual" }
+    println("$name: Success")
+}
 
 fun <T> MutableList<T>.rotateLeft(){
     if (isEmpty()) return
