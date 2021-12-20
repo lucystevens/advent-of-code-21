@@ -6,6 +6,12 @@ data class Point(val x: Int, val y: Int) {
     fun left(): Point = Point(x-1, y)
     fun right(): Point = Point(x+1, y)
 
+    fun topLeft(): Point = above().left()
+    fun topRight(): Point = above().right()
+    fun bottomLeft(): Point = below().left()
+    fun bottomRight(): Point = below().right()
+
+
     fun adjacentPoints(includeDiagonals: Boolean = false): List<Point> =
         when(includeDiagonals){
             true -> IntRange(-1,1).flatMap {
