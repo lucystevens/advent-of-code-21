@@ -27,3 +27,14 @@ fun <T> MutableList<T>.rotateLeft(){
     }
     set(lastIndex, item0)
 }
+
+fun <T, R> Pair<T,T>.mapBoth(mappingFunction: (T) -> R): Pair<R,R> {
+    return Pair(mappingFunction.invoke(first), mappingFunction.invoke(second))
+}
+
+// Combines every value from this list, with every value from the other list
+fun <T,U,V> Iterable<T>.combine(iterable: Iterable<U>, combiner: (T,U) -> V): List<V>{
+    return flatMap { t ->
+        iterable.map { u -> combiner.invoke(t,u) }
+    }
+}
