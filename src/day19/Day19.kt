@@ -1,6 +1,7 @@
 package day19
 
 import checkAnswer
+import common.Point3D
 import readInput
 import kotlin.math.abs
 import kotlin.math.max
@@ -141,38 +142,12 @@ fun main() {
     println(part2(result)) // 12124
 }
 
-data class Point3D(var x: Int, var y: Int, var z: Int){
-
-    fun orientate(orientation: Orientation): Point3D {
-        return Point3D(
-            getAxis(orientation.xAxis) * orientation.xMod,
-            getAxis(orientation.yAxis) * orientation.yMod,
-            getAxis(orientation.zAxis) * orientation.zMod
-        )
-    }
-
-    fun transform(delta: Point3D): Point3D{
-        return transform(delta.x, delta.y, delta.z)
-    }
-
-    fun transform(xDelta: Int, yDelta: Int, zDelta: Int): Point3D{
-        return Point3D(x + xDelta, y+ yDelta, z+zDelta)
-    }
-
-    fun setAxis(a: Char, value: Int) = when(a) {
-        'x' -> x = value
-        'y' -> y = value
-        'z' -> z = value
-        else -> throw IllegalArgumentException("Axis $a not recognised")
-    }
-
-    fun getAxis(a: Char) = when(a) {
-        'x' -> x
-        'y' -> y
-        'z' -> z
-        else -> throw IllegalArgumentException("Axis $a not recognised")
-    }
-
+fun Point3D.orientate(orientation: Orientation): Point3D {
+    return Point3D(
+        getAxis(orientation.xAxis) * orientation.xMod,
+        getAxis(orientation.yAxis) * orientation.yMod,
+        getAxis(orientation.zAxis) * orientation.zMod
+    )
 }
 
 data class Orientation(
