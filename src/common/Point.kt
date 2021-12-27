@@ -11,6 +11,9 @@ data class Point(val x: Int, val y: Int) {
     fun bottomLeft(): Point = below().left()
     fun bottomRight(): Point = below().right()
 
+    fun transform(xDelta: Int, yDelta: Int): Point{
+        return Point(x + xDelta, y+ yDelta)
+    }
 
     fun adjacentPoints(includeDiagonals: Boolean = false): List<Point> =
         when(includeDiagonals){

@@ -1,3 +1,9 @@
 .gradle
 .idea
 build
+
+# crash files
+*.dmp
+*.trc
+*.phd
+javacore*.txt
